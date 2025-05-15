@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Palette, Code } from 'lucide-react';
+import { ArrowDown, Palette, Code, Figma, Database } from 'lucide-react';
 
 export default function Hero() {
   const container = {
@@ -25,8 +25,15 @@ export default function Hero() {
     }
   };
 
+  const skills = [
+    { name: "React/Next.js", icon: <Code className="w-5 h-5" /> },
+    { name: "UI/UX Design", icon: <Palette className="w-5 h-5" /> },
+    { name: "Node.js", icon: <Database className="w-5 h-5" /> },
+    { name: "Figma", icon: <Figma className="w-5 h-5" /> },
+  ];
+
   return (
-    <section className="relative py-28 md:py-36 lg:py-44 flex items-center min-h-screen">
+    <section id="home" className="relative pt-24 md:pt-28 flex items-center min-h-screen">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -49,7 +56,7 @@ export default function Hero() {
           <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium">
             <Palette className="w-4 h-4 mr-2" />
             <Code className="w-4 h-4 mr-2" />
-            Creating digital experiences since 2020
+            Crafting digital experiences
           </span>
         </motion.div>
         
@@ -90,16 +97,35 @@ export default function Hero() {
           to deliver complete digital solutions.
         </motion.p>
         
+        {/* Skills chips */}
+        <motion.div variants={item} className="flex flex-wrap justify-center gap-3 mb-12">
+          {skills.map((skill, index) => (
+            <span 
+              key={index}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm font-medium"
+            >
+              {skill.icon}
+              <span className="ml-2">{skill.name}</span>
+            </span>
+          ))}
+        </motion.div>
+        
         {/* Action buttons */}
         <motion.div variants={item} className="flex flex-wrap justify-center gap-4">
-          <button className="btn-primary px-8 py-4 text-lg flex items-center">
+          <a 
+            href="#projects" 
+            className="btn-primary px-8 py-4 text-lg flex items-center transition-all hover:-translate-y-1"
+          >
             <Code className="w-5 h-5 mr-2" />
             View Projects
-          </button>
-          <button className="btn-secondary px-8 py-4 text-lg flex items-center">
+          </a>
+          <a 
+            href="#contact" 
+            className="btn-secondary px-8 py-4 text-lg flex items-center transition-all hover:-translate-y-1"
+          >
             <Palette className="w-5 h-5 mr-2" />
-            Design Portfolio
-          </button>
+            Contact Me
+          </a>
         </motion.div>
         
         {/* Scroll indicator */}
@@ -115,9 +141,12 @@ export default function Hero() {
             ease: "easeInOut",
           }}
         >
-          <a href="#about" className="p-3 rounded-full border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a 
+            href="#about" 
+            className="p-3 rounded-full border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            aria-label="Scroll down"
+          >
             <ArrowDown className="w-6 h-6" />
-            <span className="sr-only">Scroll down</span>
           </a>
         </motion.div>
       </motion.div>
