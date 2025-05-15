@@ -30,14 +30,14 @@ export default function Contact() {
     {
       icon: <FiMail className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
       title: "Email",
-      value: "masinde@example.com",
-      href: "mailto:masinde@example.com"
+      value: "watty.s@outlook.com",
+      href: "mailto:watty.s@outlook.com"
     },
     {
       icon: <FiPhone className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
       title: "Phone",
-      value: "+254 7XX XXX XXX",
-      href: "tel:+2547XXXXXXXX"
+      value: "+254 712 258 858",
+      href: "tel:+254712 258 858"
     },
     {
       icon: <FiMapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
