@@ -53,11 +53,11 @@ export default function Contact() {
     },
     {
       icon: <FaLinkedin className="w-5 h-5" />,
-      href: "https://linkedin.com/in/masindesylvester"
+      href: "https://www.linkedin.com/in/m-sylvester-9bb732251/"
     },
     {
       icon: <FaTwitter className="w-5 h-5" />,
-      href: "https://twitter.com/masindesylvester"
+      href: "https://x.com/sylvesterwatty1"
     }
   ];
 
