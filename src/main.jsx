@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FiMoon, FiSun } from 'react-icons/fi'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // Removed unused AnimatePresence
+import { FiMoon, FiSun } from "react-icons/fi";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(false);
   
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkMode(true)
+      setDarkMode(true);
     }
-  }, [])
+  }, []);
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -29,5 +29,5 @@ export default function App() {
         </main>
       </div>
     </div>
-  )
+  );
 }
