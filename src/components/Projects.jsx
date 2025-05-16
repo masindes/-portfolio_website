@@ -4,39 +4,39 @@ import { FiExternalLink } from 'react-icons/fi';
 const projects = [
   {
     title: "Moringa School Portal",
-    description: "Student management system for Moringa School with attendance tracking, course materials, and progress dashboards.",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    link: "https://moringa-portal.example.com"
+    description: "Student management system with attendance tracking, course materials, and progress dashboards using React frontend and Flask backend.",
+    tags: ["React", "Flask", "SQLite", "Tailwind CSS"],
+    link: "#"
   },
   {
     title: "React Jobs App",
-    description: "Job search platform with filters, saved jobs, and application tracking built with React and Firebase.",
-    tags: ["React", "Firebase", "Context API", "Material UI"],
-    link: "https://react-jobs.example.com"
+    description: "Job search platform with authentication, filters, and application tracking built with React and Node.js backend.",
+    tags: ["React", "Node.js", "JavaScript", "Tailwind CSS"],
+    link: "#"
   },
   {
     title: "Rental Management System",
-    description: "Full-stack solution for property managers to track tenants, payments, and maintenance requests.",
-    tags: ["Next.js", "Python", "PostgreSQL", "Django"],
-    link: "https://rental-system.example.com"
+    description: "Full-stack property management solution with tenant tracking and payment processing.",
+    tags: ["React", "Python", "Flask", "SQLite"],
+    link: "#"
   },
   {
     title: "Church Website",
-    description: "Modern church website with event calendars, sermon archives, and online donations.",
-    tags: ["WordPress", "PHP", "MySQL", "Elementor"],
-    link: "https://faith-community.example.com"
+    description: "Interactive church platform with event management and member portal using React and Flask.",
+    tags: ["React", "Flask", "JavaScript", "HTML/CSS"],
+    link: "#"
   },
   {
     title: "Task Management CLI",
-    description: "Command-line productivity tool for managing tasks with deadlines and priorities.",
-    tags: ["Python", "Click", "SQLite", "Typer"],
-    link: "https://github.com/yourusername/task-cli"
+    description: "Command-line productivity tool built with Python and SQLite for local task tracking.",
+    tags: ["Python", "SQLite", "Click"],
+    link: "#"
   },
   {
     title: "Portfolio Website",
-    description: "Personal developer portfolio showcasing projects with responsive design and dark mode.",
-    tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-    link: "https://yourportfolio.example.com"
+    description: "Responsive personal portfolio showcasing projects with dark mode and animations.",
+    tags: ["React", "Tailwind CSS", "JavaScript", "Framer Motion"],
+    link: "#"
   }
 ];
 
@@ -49,7 +49,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="section-title text-center mb-16"
+          className="text-4xl font-bold text-center mb-16 dark:text-white"
         >
           My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Projects</span>
         </motion.h2>
@@ -71,7 +71,13 @@ export default function Projects() {
                 {project.tags.map((tag, i) => (
                   <span 
                     key={i} 
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium"
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      tag === 'React' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
+                      tag === 'Node.js' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' :
+                      tag === 'Python' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400' :
+                      tag === 'Flask' ? 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' :
+                      'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                    }`}
                   >
                     {tag}
                   </span>
