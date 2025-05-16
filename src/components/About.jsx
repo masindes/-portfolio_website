@@ -31,7 +31,7 @@ export default function About() {
         initial="hidden"
         animate="visible"
         variants={container}
-        className="max-w-4xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
         {/* Title */}
         <motion.div variants={item} className="text-center mb-16">
@@ -43,17 +43,20 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* Content */}
-        <div className="space-y-12">
-          {/* Profile Section */}
-          <motion.div variants={item} className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
+        {/* Content - Horizontal Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Profile Card */}
+          <motion.div 
+            variants={item} 
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full flex flex-col"
+          >
             <div className="flex items-center mb-6">
               <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mr-4">
                 <FiUser className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold dark:text-white">Professional Profile</h3>
             </div>
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 flex-grow">
               <p className="text-lg">
                 Dynamic software developer with strong foundations in full-stack web development and graphic design. 
                 Proficient in both front-end and back-end technologies including HTML, CSS, JavaScript, React, Python, 
@@ -63,7 +66,7 @@ export default function About() {
                 Experienced in creating user-focused solutions and delivering high-quality designs for web and digital media. 
                 Passionate about combining technical expertise with creative design to build innovative projects.
               </p>
-              <div className="flex items-center space-x-4 pt-4">
+              <div className="flex items-center space-x-4 pt-4 mt-auto">
                 <div className="flex items-center text-blue-600 dark:text-blue-400 text-lg">
                   <FiAward className="w-5 h-5 mr-2" />
                   <span>4+ Years Experience</span>
@@ -72,8 +75,11 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Experience Section */}
-          <motion.div variants={item} className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
+          {/* Experience Card */}
+          <motion.div 
+            variants={item} 
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full"
+          >
             <div className="flex items-center mb-6">
               <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mr-4">
                 <FiBriefcase className="w-6 h-6" />
