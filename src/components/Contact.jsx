@@ -37,7 +37,7 @@ export default function Contact() {
       icon: <FiPhone className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
       title: "Phone",
       value: "+254 712 258 858",
-      href: "tel:+254712 258 858"
+      href: "tel:+254712258858"
     },
     {
       icon: <FiMapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
@@ -62,7 +62,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -71,30 +71,30 @@ export default function Contact() {
       >
         <motion.h2 
           variants={item}
-          className="section-title text-center mb-16"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 dark:text-white"
         >
           Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Touch</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Information - Centered on mobile */}
           <motion.div 
             variants={item}
-            className="space-y-8"
+            className="space-y-8 text-center md:text-left"
           >
             <h3 className="text-2xl font-bold dark:text-white">Contact Information</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 dark:text-gray-400 mx-auto md:mx-0 max-w-md">
               Have a project in mind or want to discuss potential opportunities? 
               Feel free to reach out through any of these channels.
             </p>
 
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
-                <div key={index} className="flex items-start space-x-4">
+                <div key={index} className="flex flex-col md:flex-row md:items-start items-center space-y-3 md:space-y-0 md:space-x-4">
                   <div className="flex-shrink-0 p-3 rounded-full bg-blue-100 dark:bg-blue-900/30">
                     {method.icon}
                   </div>
-                  <div>
+                  <div className="text-center md:text-left">
                     <h4 className="font-medium text-gray-900 dark:text-white">{method.title}</h4>
                     {method.href ? (
                       <a 
@@ -112,8 +112,8 @@ export default function Contact() {
             </div>
 
             <div className="pt-4">
-              <h4 className="font-medium text-gray-900 dark:text-white mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
+              <h4 className="font-medium text-gray-900 dark:text-white mb-4 text-center md:text-left">Follow Me</h4>
+              <div className="flex justify-center md:justify-start space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -130,10 +130,10 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Centered on mobile */}
           <motion.div 
             variants={item}
-            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 mx-auto w-full max-w-md lg:max-w-none"
           >
             <form className="space-y-6">
               <div>
@@ -176,7 +176,7 @@ export default function Contact() {
                 type="submit" 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-primary w-full flex items-center justify-center space-x-2"
+                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-md transition-all"
               >
                 <FiSend className="w-5 h-5" />
                 <span>Send Message</span>
