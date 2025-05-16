@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiCode, FiLayers, FiDatabase, FiPenTool, FiAward } from 'react-icons/fi';
+import { FiAward } from 'react-icons/fi';
 
 export default function About() {
   const container = {
@@ -24,20 +24,6 @@ export default function About() {
       }
     }
   };
-
-  const skills = [
-    { name: "Frontend Development", icon: <FiCode className="w-5 h-5" />, items: ["HTML/CSS", "JavaScript", "React", "Next.js"] },
-    { name: "Backend Development", icon: <FiDatabase className="w-5 h-5" />, items: ["Node.js", "Python", "Flask", "SQLite"] },
-    { name: "UI/UX Design", icon: <FiPenTool className="w-5 h-5" />, items: ["Figma", "Adobe Suite", "Prototyping", "User Research"] },
-    { name: "Graphic Design", icon: <FiLayers className="w-5 h-5" />, items: ["Print Media", "Branding", "Packaging", "Marketing Materials"] }
-  ];
-
-  const projects = [
-    { name: "Portfolio Website", description: "Modern responsive portfolio showcasing design and development projects", tech: "HTML, CSS, JavaScript" },
-    { name: "Job Application Platform", description: "Job search platform with user authentication and application tracking", tech: "React, Node.js" },
-    { name: "Task Management CLI", description: "Python command-line tool for efficient task management", tech: "Python" },
-    { name: "Rental Management System", description: "Full-stack application streamlining property management", tech: "React, Node.js, Flask" }
-  ];
 
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
@@ -99,52 +85,6 @@ export default function About() {
                     Increased customer satisfaction by 20% through quality designs.
                   </p>
                 </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Skills & Projects */}
-          <motion.div variants={item} className="space-y-12">
-            {/* Skills */}
-            <div>
-              <h3 className="text-2xl font-bold dark:text-white mb-6">Skills & Expertise</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {skills.map((skill, index) => (
-                  <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center mb-3">
-                      <div className="p-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mr-3">
-                        {skill.icon}
-                      </div>
-                      <h4 className="font-medium dark:text-white">{skill.name}</h4>
-                    </div>
-                    <ul className="space-y-1">
-                      {skill.items.map((item, i) => (
-                        <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Projects */}
-            <div>
-              <h3 className="text-2xl font-bold dark:text-white mb-6">Notable Projects</h3>
-              <div className="space-y-4">
-                {projects.map((project, index) => (
-                  <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-                    <h4 className="font-medium dark:text-white">{project.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{project.description}</p>
-                    <div className="mt-2">
-                      <span className="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400">
-                        {project.tech}
-                      </span>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </motion.div>
