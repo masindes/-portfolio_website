@@ -18,7 +18,7 @@ const projects = [
     title: "Rental Management System",
     description: "Full-stack property management solution with tenant records, lease tracking, payment processing, and maintenance request system using Python Flask backend and React admin dashboard.",
     tags: ["React", "Python", "Flask", "SQLite", "CSS3"],
-    link: "#"
+    link: "https://user-snowy.vercel.app/"
   },
   {
     title: "Church Website",
