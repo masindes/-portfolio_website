@@ -24,13 +24,13 @@ const projects = [
     title: "Church Website",
     description: "Interactive church platform with event calendar, sermon archive, online donations, and member portal. React frontend with Flask API services and content management capabilities.",
     tags: ["React", "Flask", "JavaScript", "HTML5", "CSS3"],
-    link: "#"
+    link: "https://website-rouge-beta-92.vercel.app/"
   },
   {
     title: "Task Management CLI",
     description: "Command-line productivity application for local task organization with priority levels, deadlines, and project categorization. Built with Python and SQLite for data persistence.",
     tags: ["Python", "SQLite", "Click", "Typer"],
-    link: "#"
+    link: "https://task-management-swart-ten.vercel.app/"
   },
   {
     title: "Portfolio Website",
