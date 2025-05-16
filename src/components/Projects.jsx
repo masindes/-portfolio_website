@@ -6,7 +6,7 @@ const projects = [
     title: "Moringa School Portal",
     description: "Comprehensive student management system with attendance tracking, course materials distribution, and progress analytics dashboard. Built with React frontend and Flask backend with SQLite database.",
     tags: ["React", "Flask", "SQLite", "Tailwind CSS", "Python"],
-    link: "#"
+    link: "https://moringa-school-portal-frontend.vercel.app/"
   },
   {
     title: "React Jobs App",
