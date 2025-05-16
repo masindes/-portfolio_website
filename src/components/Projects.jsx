@@ -12,7 +12,7 @@ const projects = [
     title: "React Jobs App",
     description: "Job search platform with user authentication, advanced filtering, and application tracking system. Features a responsive React frontend with Node.js API backend and JWT authentication.",
     tags: ["React", "Node.js", "JavaScript", "Tailwind CSS", "HTML5"],
-    link: "#"
+    link: "https://react-jobs-fkmm.vercel.app/"
   },
   {
     title: "Rental Management System",
