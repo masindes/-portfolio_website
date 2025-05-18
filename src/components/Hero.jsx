@@ -70,7 +70,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom Gradient - edge-to-edge */}
+      {/*  Gradient - edge-to-edge */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 to-transparent"
         style={{ margin: 0 }}
