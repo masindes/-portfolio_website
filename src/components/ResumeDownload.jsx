@@ -2,7 +2,7 @@ import { FiDownload } from 'react-icons/fi';
 
 const ResumeDownload = () => {
   // Replace with your actual resume path
-  const resumeUrl = "public/resume/Dev_resume.m.pdf"; 
+  const resumeUrl = "public/resume/Dev_resume.pdf"; 
   const fileName = "Masinde_Resume.pdf"; // Customize filename
   
   return (
