@@ -1,113 +1,173 @@
 import { motion } from "framer-motion";
-import { ArrowDown, MousePointerClick } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 export default function Hero() {
+  const socials = [
+    { icon: <FiGithub size={18} />, href: "https://github.com/masindes", label: "GitHub" },
+    { icon: <FiLinkedin size={18} />, href: "https://www.linkedin.com/in/m-sylvester-9bb732251/", label: "LinkedIn" },
+    { icon: <FiMail size={18} />, href: "mailto:watty.s@outlook.com", label: "Email" },
+  ];
+
   return (
-    <section 
-      id="home" 
-      className="relative w-full h-screen min-h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/resume/sylvester.jpeg')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/10 to-black/90" />
-        
-        {/* Animated grid pattern */}
-        <div className="absolute inset-0 opacity-10 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        </div>
+    <section id="home" className="relative w-full min-h-screen flex items-center bg-slate-950 overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_60%_-10%,rgba(99,102,241,0.18),transparent)]" />
+      {/* Subtle grid */}
+      <div className="absolute inset-0 opacity-[0.035] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 px-6 sm:px-8">
-        <div className="flex flex-col items-center text-center">
-          {/* Intro Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-6 text-sm font-medium tracking-widest text-blue-400 uppercase"
-          >
-            Welcome to my portfolio
-          </motion.div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-          >
-            <span className="block">I'm Masinde Sylvester</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              Digital Craftsman
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-2xl text-lg text-gray-300 mb-10"
-          >
-            Building exceptional digital experiences through code and design. 
-            Specializing in full-stack development with a focus on performance 
-            and user-centered interfaces.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
-          >
-            <a
-              href="#projects"
-              className="relative px-8 py-3.5 overflow-hidden font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg group"
+          {/* ── Left: Text ── */}
+          <div className="flex-1 text-center lg:text-left">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-8"
             >
-              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-              <span className="relative flex items-center gap-2">
-                <MousePointerClick className="w-4 h-4" />
-                View Projects
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+              <span className="text-xs font-medium tracking-widest text-indigo-400 uppercase">
+                Available for new opportunities
               </span>
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3.5 font-medium text-white border border-gray-600 rounded-lg hover:bg-white/5 transition-colors"
-            >
-              Get In Touch
-            </a>
-          </motion.div>
+            </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="absolute bottom-8"
-          >
-            <a href="#about" className="flex flex-col items-center group">
-              <motion.div
-                animate={{ 
-                  y: [0, 10, 0],
-                  opacity: [1, 0.7, 1]
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 2,
-                  ease: "easeInOut"
-                }}
-                className="mb-1 text-sm text-gray-400 group-hover:text-white transition-colors"
+            {/* Name */}
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.06] mb-4"
+            >
+              Masinde
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400">
+                Sylvester
+              </span>
+            </motion.h1>
+
+            {/* Disciplines */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.22 }}
+              className="text-slate-400 font-medium tracking-[0.18em] text-xs uppercase mb-7"
+            >
+              Creative Designer &nbsp;·&nbsp; Software Engineer &nbsp;·&nbsp; L&D Professional
+            </motion.p>
+
+            {/* Bio */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.32 }}
+              className="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+            >
+              Bridging visual storytelling, full-stack engineering, and instructional
+              design — delivering outcomes that are visually powerful, technically
+              sound, and strategically aligned.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.44 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12"
+            >
+              <a
+                href="#projects"
+                className="px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                Scroll down
-              </motion.div>
-              <ArrowDown className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
-            </a>
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="px-7 py-3.5 text-slate-300 border border-slate-700 font-semibold rounded-xl hover:border-indigo-500/60 hover:text-white hover:bg-white/5 transition-all duration-200"
+              >
+                Get In Touch
+              </a>
+            </motion.div>
+
+            {/* Social links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.56 }}
+              className="flex justify-center lg:justify-start gap-2"
+            >
+              {socials.map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="p-2.5 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800 border border-transparent hover:border-slate-700 transition-all duration-200"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── Right: Photo ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
+            className="flex-shrink-0 mt-4 lg:mt-0"
+          >
+            <div className="relative">
+              {/* Photo frame */}
+              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[22rem] lg:h-[22rem] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-indigo-950/60">
+                <img
+                  src="/resume/sylvester.jpeg"
+                  alt="Masinde Sylvester"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              {/* Decorative offset border */}
+              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-indigo-500/20 -z-10" />
+              {/* Corner accent block */}
+              <div className="absolute -top-3 -left-3 w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500/20 to-violet-500/10 border border-indigo-500/20" />
+
+              {/* Quote chip */}
+              <div className="absolute -bottom-7 left-4 right-4 px-4 py-2.5 bg-slate-900/95 backdrop-blur-sm rounded-xl border border-slate-800 shadow-xl">
+                <p className="text-[11px] text-slate-400 italic text-center">
+                  "Design is made visual." — Saul Bass
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <a
+          href="#about"
+          className="flex flex-col items-center gap-1.5 text-slate-600 hover:text-slate-400 transition-colors"
+        >
+          <span className="text-[10px] tracking-[0.18em] uppercase font-medium">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            <ArrowDown size={14} />
+          </motion.div>
+        </a>
+      </motion.div>
     </section>
   );
 }

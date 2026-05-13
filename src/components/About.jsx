@@ -1,119 +1,245 @@
 import { motion } from 'framer-motion';
-import { FiAward, FiBriefcase, FiUser } from 'react-icons/fi';
+import { FiBriefcase, FiBook, FiUser } from 'react-icons/fi';
+
+const experiences = [
+  {
+    role: "Digital Learning & Creative Designer",
+    company: "PrideInn Hotel, Resorts & Camps",
+    dept: "L&D Department",
+    period: "2025 – Present",
+    current: true,
+    points: [
+      "Design and develop digital learning materials, e-learning content, and staff training resources.",
+      "Build internal digital tools and learning systems using HTML, CSS, JavaScript, and Python.",
+      "Apply UX principles to improve learner experience across digital training platforms.",
+    ],
+  },
+  {
+    role: "DTP / Creative Designer",
+    company: "Polyflex Natal Limited",
+    dept: "South Africa",
+    period: "Jan 2023 – Dec 2024",
+    current: false,
+    points: [
+      "Led ideation, conceptualisation, and visual communication across all brand and marketing media.",
+      "Directed the creative team; wrote scripts for TV & Radio campaigns.",
+      "Handled all pre-press: Stripping, Imposition, and CTP production.",
+    ],
+  },
+  {
+    role: "Creative Designer",
+    company: "PrintKnight Advertising",
+    dept: "Nairobi, Kenya",
+    period: "Dec 2021 – Dec 2022",
+    current: false,
+    points: [
+      "Conceptualised and led brand campaigns; managed studio traffic and design team.",
+      "Layout design for annual reports, calendars, and corporate collateral.",
+    ],
+  },
+  {
+    role: "Graphic Designer",
+    company: "Color Labels",
+    dept: "Nairobi, Kenya",
+    period: "Feb 2021 – Dec 2021",
+    current: false,
+    points: [
+      "Lead designer on Sprite across East, Central & Southern Africa.",
+      "One of the main designers on BAT pan-African campaigns.",
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: "Software Engineering",
+    institution: "Moringa School, Nairobi",
+    period: "Jul 2024 – Apr 2025",
+    detail: "Full-stack: Python, JavaScript, React, Flask, SQLite, REST APIs",
+  },
+  {
+    degree: "BTEC Diploma in Graphic Design",
+    institution: "Academy of Graphic Technologies Ltd.",
+    period: "Jan 2019 – Dec 2022",
+    detail: "Art & Design — Graphic Design Option",
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 export default function About() {
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        ease: 'easeOut',
-        duration: 0.5
-      }
-    }
-  };
-
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="max-w-6xl mx-auto"
-      >
-        {/* Title */}
-        <motion.div variants={item} className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 dark:text-white">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Me</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-400">
-            Detail-oriented full-stack developer and graphic designer creating user-focused digital experiences
-          </p>
+    <section id="about" className="py-24 bg-white dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* Section header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="mb-16"
+        >
+          <p className="section-label">Who I Am</p>
+          <h2 className="section-title">About Me</h2>
+          <div className="section-rule" />
         </motion.div>
 
-        {/* Content - Horizontal Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Profile Card */}
-          <motion.div 
-            variants={item} 
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full flex flex-col"
-          >
-            <div className="flex items-center mb-6">
-              <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mr-4">
-                <FiUser className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold dark:text-white">Professional Profile</h3>
-            </div>
-            <div className="space-y-4 text-gray-700 dark:text-gray-300 flex-grow">
-              <p className="text-lg">
-                Dynamic software developer with strong foundations in full-stack web development and graphic design. 
-                Proficient in both front-end and back-end technologies including HTML, CSS, JavaScript, React, Python, 
-                Flask, and SQLite.
-              </p>
-              <p className="text-lg">
-                Experienced in creating user-focused solutions and delivering high-quality designs for web and digital media. 
-                Passionate about combining technical expertise with creative design to build innovative projects.
-              </p>
-              <div className="flex items-center space-x-4 pt-4 mt-auto">
-                <div className="flex items-center text-blue-600 dark:text-blue-400 text-lg">
-                  <FiAward className="w-5 h-5 mr-2" />
-                  <span>4+ Years Experience</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
 
-          {/* Experience Card */}
-          <motion.div 
-            variants={item} 
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full"
-          >
-            <div className="flex items-center mb-6">
-              <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mr-4">
-                <FiBriefcase className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold dark:text-white">Work Experience</h3>
-            </div>
-            <div className="space-y-8">
-              <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
-                <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
-                <div className="mb-2">
-                  <h4 className="text-xl font-bold dark:text-white">Graphic Designer</h4>
-                  <p className="text-gray-500 dark:text-gray-400">Practical Social Limited | July 2023 – August 2024</p>
+          {/* ── Left column: Profile + Education ── */}
+          <div className="lg:col-span-2 space-y-6">
+
+            {/* Profile card */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="p-6 rounded-2xl bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <FiUser className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-lg">
-                  Created designs for print and digital media including brochures, stores, and product packaging. 
-                  Improved team productivity by 10% through efficient design workflows.
-                </p>
+                <h3 className="font-semibold text-slate-900 dark:text-white">Profile</h3>
               </div>
-              
-              <div className="relative pl-8 border-l-2 border-purple-500">
-                <div className="absolute w-4 h-4 bg-purple-500 rounded-full -left-2 top-1"></div>
-                <div className="mb-2">
-                  <h4 className="text-xl font-bold dark:text-white">Graphic Designer</h4>
-                  <p className="text-gray-500 dark:text-gray-400">PointSight Limited | June 2021 – July 2023</p>
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                A multidisciplinary creative and technology professional who bridges visual
+                storytelling, software engineering, and learning & development. Expert in
+                transforming complex ideas into compelling design and digital solutions across
+                print, web, and training environments.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Creative Design", "Software Engineering", "L&D"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Education card */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              className="p-6 rounded-2xl bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2.5 rounded-lg bg-violet-100 dark:bg-violet-900/30">
+                  <FiBook className="w-4 h-4 text-violet-600 dark:text-violet-400" />
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-lg">
-                  Designed marketing materials including business cards, posters, and headers. 
-                  Increased customer satisfaction by 20% through quality designs.
-                </p>
+                <h3 className="font-semibold text-slate-900 dark:text-white">Education</h3>
               </div>
+              <div className="space-y-5">
+                {education.map((edu, i) => (
+                  <div
+                    key={i}
+                    className={i > 0 ? "pt-5 border-t border-slate-200 dark:border-gray-700" : ""}
+                  >
+                    <div className="flex justify-between items-start gap-2 mb-1">
+                      <h4 className="text-sm font-semibold text-slate-800 dark:text-white leading-snug">
+                        {edu.degree}
+                      </h4>
+                      <span className="text-[11px] text-slate-400 whitespace-nowrap shrink-0">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 mb-1">
+                      {edu.institution}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{edu.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── Right column: Work Experience Timeline ── */}
+          <div className="lg:col-span-3">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="p-2.5 rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="font-semibold text-slate-900 dark:text-white">Work Experience</h3>
+            </motion.div>
+
+            <div className="relative space-y-4 pl-6 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-slate-200 dark:before:bg-gray-700">
+              {experiences.map((exp, i) => (
+                <motion.div
+                  key={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 22 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.45, delay: i * 0.08, ease: 'easeOut' },
+                    },
+                  }}
+                  className="relative"
+                >
+                  {/* Timeline dot */}
+                  <div
+                    className={`absolute -left-[1.55rem] top-[1.1rem] w-3 h-3 rounded-full border-2 transition-colors ${
+                      exp.current
+                        ? 'bg-indigo-600 border-indigo-600 shadow-[0_0_0_3px_rgba(99,102,241,0.2)]'
+                        : 'bg-white dark:bg-gray-900 border-slate-300 dark:border-gray-600'
+                    }`}
+                  />
+
+                  <div className="p-5 rounded-xl bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:border-indigo-200 dark:hover:border-indigo-800/60 transition-colors">
+                    <div className="flex flex-wrap justify-between items-start gap-2 mb-3">
+                      <div>
+                        <h4 className="font-semibold text-slate-900 dark:text-white text-sm leading-snug">
+                          {exp.role}
+                        </h4>
+                        <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 mt-0.5">
+                          {exp.company}
+                          <span className="text-slate-400 dark:text-slate-500 font-normal"> · {exp.dept}</span>
+                        </p>
+                      </div>
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${
+                          exp.current
+                            ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300'
+                            : 'bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-slate-400'
+                        }`}
+                      >
+                        {exp.period}
+                      </span>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {exp.points.map((pt, j) => (
+                        <li key={j} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-indigo-400 flex-shrink-0" />
+                          {pt}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
