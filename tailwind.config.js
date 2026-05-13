@@ -6,9 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+      },
       colors: {
-        primary: "#06b6d4",
-        secondary: "#3b82f6",
+        primary: "#4f46e5",
+        secondary: "#7c3aed",
         dark: "#0f172a",
       },
       animation: {
