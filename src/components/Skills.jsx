@@ -1,174 +1,155 @@
 import { motion } from 'framer-motion';
-import { FiCode, FiPenTool, FiLayers, FiDatabase, FiCpu } from 'react-icons/fi';
+import { FiPenTool, FiCode, FiBookOpen } from 'react-icons/fi';
+
+const skillGroups = [
+  {
+    title: "Design & Creative",
+    icon: <FiPenTool className="w-4 h-4" />,
+    accent: "indigo",
+    skills: [
+      "Adobe Illustrator", "Photoshop", "InDesign",
+      "CorelDRAW", "Acrobat", "Pre-press / DTP / CTP",
+      "Brand Campaigns", "Typography & Layout",
+      "Visual Communication", "Art Direction",
+      "Photography", "Infographics",
+    ],
+  },
+  {
+    title: "Software Engineering",
+    icon: <FiCode className="w-4 h-4" />,
+    accent: "violet",
+    skills: [
+      "HTML5 / CSS3", "JavaScript", "React",
+      "Python", "Flask", "SQLite",
+      "TailwindCSS", "REST APIs", "Git",
+      "Full-Stack Web Dev", "UI/UX Prototyping",
+      "E-Learning Systems",
+    ],
+  },
+  {
+    title: "Learning & Development",
+    icon: <FiBookOpen className="w-4 h-4" />,
+    accent: "blue",
+    skills: [
+      "Instructional Design", "Content Development",
+      "Digital Learning Production",
+      "Script Writing (AV / e-Learning)",
+      "Visual Training Materials",
+      "LMS Administration",
+      "Cross-functional Facilitation",
+    ],
+  },
+];
+
+const accent = {
+  indigo: {
+    iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
+    iconColor: "text-indigo-600 dark:text-indigo-400",
+    tag: "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60",
+    bar: "from-indigo-500 to-violet-500",
+    border: "border-indigo-100 dark:border-indigo-900/40 hover:border-indigo-300 dark:hover:border-indigo-700",
+  },
+  violet: {
+    iconBg: "bg-violet-100 dark:bg-violet-900/30",
+    iconColor: "text-violet-600 dark:text-violet-400",
+    tag: "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-800/60",
+    bar: "from-violet-500 to-purple-500",
+    border: "border-violet-100 dark:border-violet-900/40 hover:border-violet-300 dark:hover:border-violet-700",
+  },
+  blue: {
+    iconBg: "bg-blue-100 dark:bg-blue-900/30",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    tag: "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60",
+    bar: "from-blue-500 to-cyan-500",
+    border: "border-blue-100 dark:border-blue-900/40 hover:border-blue-300 dark:hover:border-blue-700",
+  },
+};
+
+const stats = [
+  { value: "4+", label: "Years in Design" },
+  { value: "200+", label: "Design Projects" },
+  { value: "50+", label: "Brand Identities" },
+  { value: "Full-Stack", label: "Engineering" },
+];
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: "Frontend Design",
-      icon: <FiPenTool className="w-6 h-6" />,
-      color: "from-purple-500 to-pink-500",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Framer Motion"]
-    },
-    {
-      title: "Backend Development",
-      icon: <FiDatabase className="w-6 h-6" />,
-      color: "from-blue-500 to-cyan-500",
-      skills: ["Node.js", "Python", "Flask", "SQLite", "REST APIs"]
-    },
-    {
-      title: "UI/UX Design",
-      icon: <FiLayers className="w-6 h-6" />,
-      color: "from-orange-500 to-red-500",
-      skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research"]
-    },
-    {
-      title: "Graphic Design",
-      icon: <FiCpu className="w-6 h-6" />,
-      color: "from-green-500 to-emerald-500",
-      skills: ["Adobe Photoshop", "Illustrator", "Brand Identity", "Print Design", "Marketing Materials"]
-    }
-  ];
-
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
+    <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16 dark:text-white"
+          className="mb-16"
         >
-          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Skills</span>
-        </motion.h2>
+          <p className="section-label">Expertise</p>
+          <h2 className="section-title">Skills &amp; Tools</h2>
+          <div className="section-rule" />
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
-            >
-              <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} text-white mr-4`}>
-                    {category.icon}
+        {/* Three skill category cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {skillGroups.map((group, index) => {
+            const a = accent[group.accent];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`bg-white dark:bg-gray-900 rounded-2xl border ${a.border} p-6 hover:shadow-lg dark:hover:shadow-slate-900/60 transition-all duration-300`}
+              >
+                {/* Accent rule */}
+                <div className={`h-1 w-10 rounded-full bg-gradient-to-r ${a.bar} mb-6`} />
+
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`p-2.5 rounded-lg ${a.iconBg}`}>
+                    <span className={a.iconColor}>{group.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold dark:text-white">{category.title}</h3>
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{group.title}</h3>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, i) => (
-                    <motion.div
+
+                {/* Skill pills */}
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill, i) => (
+                    <motion.span
                       key={i}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full"
+                      initial={{ opacity: 0, scale: 0.88 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.25, delay: i * 0.03 }}
+                      viewport={{ once: true }}
+                      className={`px-3 py-1 text-xs font-medium rounded-full ${a.tag}`}
                     >
-                      <span className="text-sm font-medium dark:text-gray-200">{skill}</span>
-                    </motion.div>
+                      {skill}
+                    </motion.span>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Additional Design Skills Visualization */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-8 rounded-2xl"
+          className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-200 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm"
         >
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-bold mb-4 dark:text-white">Design Expertise</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                With 4+ years of graphic design experience, I combine technical development skills with strong visual design principles.
+          {stats.map((stat, i) => (
+            <div key={i} className="bg-white dark:bg-gray-900 px-6 py-5 text-center">
+              <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-1 font-display">
+                {stat.value}
               </p>
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium dark:text-white">UI/UX Design</span>
-                    <span className="text-gray-500 dark:text-gray-400">90%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                    <div 
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full" 
-                      style={{ width: '90%' }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium dark:text-white">Brand Identity</span>
-                    <span className="text-gray-500 dark:text-gray-400">85%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                    <div 
-                      className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2.5 rounded-full" 
-                      style={{ width: '85%' }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium dark:text-white">Print Design</span>
-                    <span className="text-gray-500 dark:text-gray-400">80%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                    <div 
-                      className="bg-gradient-to-r from-orange-500 to-red-500 h-2.5 rounded-full" 
-                      style={{ width: '80%' }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</p>
             </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm flex items-center">
-                <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mr-4">
-                  <FiPenTool className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold dark:text-white">200+</h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">Design Projects</p>
-                </div>
-              </div>
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm flex items-center">
-                <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mr-4">
-                  <FiLayers className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold dark:text-white">50+</h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">Brand Identities</p>
-                </div>
-              </div>
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm flex items-center">
-                <div className="p-3 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mr-4">
-                  <FiCpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold dark:text-white">100%</h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">Client Satisfaction</p>
-                </div>
-              </div>
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm flex items-center">
-                <div className="p-3 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 mr-4">
-                  <FiCode className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold dark:text-white">4+ Years</h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">Design Experience</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>

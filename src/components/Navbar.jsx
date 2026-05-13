@@ -3,146 +3,135 @@ import { FiMoon, FiSun, FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-
 import { useState } from 'react';
 
 export default function Navbar({ darkMode, setDarkMode }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
+    { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const socialIcons = [
-    { icon: <FiGithub size={18} />, href: 'https://github.com/masindesylvester' },
-    { icon: <FiLinkedin size={18} />, href: 'https://linkedin.com/in/masindesylvester' },
-    { icon: <FiMail size={18} />, href: 'mailto:watty.s@outlook.com' },
+  const socials = [
+    { icon: <FiGithub size={16} />, href: 'https://github.com/masindes', label: 'GitHub' },
+    { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/m-sylvester-9bb732251/', label: 'LinkedIn' },
+    { icon: <FiMail size={16} />, href: 'mailto:watty.s@outlook.com', label: 'Email' },
   ];
 
   return (
     <>
-      <nav className="h-20 w-full px-4 sm:px-6 lg:px-8 flex items-center sticky top-0 z-50">
-        {/* Full-width background card */}
-        <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-800"></div>
-        
+      <nav className="h-16 w-full px-4 sm:px-6 lg:px-8 flex items-center sticky top-0 z-50">
+        {/* Background */}
+        <div className="absolute inset-0 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/60" />
+
         <div className="w-full max-w-7xl mx-auto flex justify-between items-center relative z-10">
-          {/* Logo/Name Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
+
+          {/* Logo */}
+          <motion.a
+            href="#home"
+            initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex-shrink-0 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-xs border border-gray-100 dark:border-gray-700"
+            transition={{ duration: 0.4 }}
+            className="font-display font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600"
           >
-            <a 
-              href="#"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-            >
-              Masinde Sylvester
-            </a>
-          </motion.div>
-          
-          {/* Desktop Navigation - Card Style */}
-          <div className="hidden md:flex items-center h-full space-x-2">
-            <div className="flex h-full px-3 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-xs border border-gray-100 dark:border-gray-700">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 * index }}
-                  className="h-full px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors relative group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-4/5 rounded-t-full"></span>
-                </motion.a>
-              ))}
-            </div>
+            Masinde Sylvester
+          </motion.a>
 
-            {/* Social and Theme Card */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex items-center space-x-1 px-3 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-xs border border-gray-100 dark:border-gray-700"
-            >
-              {socialIcons.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.1 * index }}
-                  className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-
-              <div className="h-5 w-px bg-gray-200 dark:bg-gray-700 mx-1"></div>
-
-              <motion.button
-                onClick={() => setDarkMode(!darkMode)}
-                whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item, i) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.06 * i }}
+                className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-all"
               >
-                {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
-              </motion.button>
-            </motion.div>
+                {item.name}
+              </motion.a>
+            ))}
+
+            <div className="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-2" />
+
+            {/* Social icons */}
+            {socials.map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target={s.href.startsWith('mailto') ? undefined : '_blank'}
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-all"
+              >
+                {s.icon}
+              </a>
+            ))}
+
+            <div className="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-1" />
+
+            {/* Dark mode toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              aria-label="Toggle dark mode"
+              className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-all"
+            >
+              {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
           </div>
 
-          {/* Mobile menu button - Card Style */}
-          <motion.button 
-            whileTap={{ scale: 0.9 }}
-            className="md:hidden p-2.5 rounded-lg bg-white dark:bg-gray-800 shadow-xs border border-gray-100 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-          </motion.button>
+          {/* Mobile: dark mode + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              aria-label="Toggle dark mode"
+              className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+            >
+              {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Open menu"
+              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+            >
+              {mobileOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu - Card Style */}
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-x-4 top-24 z-40 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.18 }}
+            className="md:hidden fixed inset-x-4 top-20 z-40 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
           >
-            <div className="px-6 py-4 space-y-3">
+            <div className="px-5 py-4 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-2.5 px-4 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 transition-all"
                 >
                   {item.name}
                 </a>
               ))}
-
-              <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex space-x-3">
-                  {socialIcons.map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >
-                  {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
-                </button>
+              <div className="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 flex gap-2">
+                {socials.map((s, i) => (
+                  <a
+                    key={i}
+                    href={s.href}
+                    target={s.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
