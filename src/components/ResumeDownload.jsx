@@ -23,7 +23,7 @@ export default function ResumeDownload() {
             and learning & development.
           </p>
           <motion.a
-            href="/resume/Dev_resume.pdf"
+            href="/resume/Masinde_Sylvester_Resume.pdf"
             download="Masinde_Sylvester_Resume.pdf"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
