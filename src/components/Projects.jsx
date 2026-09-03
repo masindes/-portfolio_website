@@ -1,18 +1,32 @@
 import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiExternalLink, FiStar } from 'react-icons/fi';
+
+const featuredProject = {
+  title: "PrideInn Pulse (Servio)",
+  description:
+    "Enterprise learning management platform built for PrideInn Hotels, Resorts & Camps. Delivers course authoring, role-based admin dashboards across properties, gamified learner progress, QR-verifiable digital certificates, compliance tracking, and audit logging — with an AI-assisted support chat.",
+  tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
+  link: "https://prideinnpulse.vercel.app",
+};
 
 const projects = [
+  {
+    title: "Beeman Honey",
+    description: "Brand and e-commerce showcase for a Kenyan-highlands honey producer — product catalogue, brand storytelling, and a fully responsive, animation-rich shopping experience.",
+    tags: ["React", "Vite", "React Router", "CSS3"],
+    link: "https://my-beeman.vercel.app/",
+  },
+  {
+    title: "Youth Explosion",
+    description: "Community platform for a youth empowerment organisation, with event registration, online payments, an interactive 3D hero experience, and downloadable PDF certificates.",
+    tags: ["React", "Three.js", "Framer Motion", "React Router"],
+    link: "https://youth-explosion.vercel.app/",
+  },
   {
     title: "Moringa School Portal",
     description: "Comprehensive student management system with attendance tracking, course materials distribution, and progress analytics dashboard.",
     tags: ["React", "Flask", "Python", "SQLite", "Tailwind CSS"],
     link: "https://moringa-school-portal-frontend.vercel.app/",
-  },
-  {
-    title: "React Jobs App",
-    description: "Job search platform with user authentication, advanced filtering, and application tracking. Features a responsive React frontend with JWT authentication.",
-    tags: ["React", "Node.js", "JavaScript", "Tailwind CSS"],
-    link: "https://react-jobs-fkmm.vercel.app/",
   },
   {
     title: "Rental Management System",
@@ -27,16 +41,16 @@ const projects = [
     link: "https://website-rouge-beta-92.vercel.app/",
   },
   {
+    title: "React Jobs App",
+    description: "Job search platform with user authentication, advanced filtering, and application tracking. Features a responsive React frontend with JWT authentication.",
+    tags: ["React", "Node.js", "JavaScript", "Tailwind CSS"],
+    link: "https://react-jobs-fkmm.vercel.app/",
+  },
+  {
     title: "Task Management CLI",
     description: "Command-line productivity application for local task organisation with priority levels, deadlines, and project categorisation using SQLite.",
     tags: ["Python", "SQLite", "Click", "Typer"],
     link: "https://task-management-swart-ten.vercel.app/",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Modern responsive portfolio with dark mode, project showcase, and smooth animations built with React, Tailwind CSS, and Framer Motion.",
-    tags: ["React", "Tailwind CSS", "Framer Motion", "JavaScript"],
-    link: "#",
   },
 ];
 
@@ -53,7 +67,22 @@ const tagColor = {
   "Framer Motion": "bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300",
   Click: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400",
   Typer: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400",
+  "Next.js": "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200",
+  TypeScript: "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300",
+  Prisma: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300",
+  PostgreSQL: "bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300",
+  Vite: "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300",
+  "React Router": "bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300",
+  "Three.js": "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300",
 };
+
+const Tag = ({ tag }) => (
+  <span
+    className={`px-2.5 py-0.5 text-xs font-medium rounded-full ${tagColor[tag] || 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}`}
+  >
+    {tag}
+  </span>
+);
 
 export default function Projects() {
   return (
@@ -73,6 +102,40 @@ export default function Projects() {
           <div className="section-rule" />
         </motion.div>
 
+        {/* Featured project */}
+        <motion.a
+          href={featuredProject.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="group relative block mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 to-indigo-950 border border-indigo-900/40 hover:border-indigo-500/50 shadow-lg hover:shadow-indigo-950/40 transition-all duration-300"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_20%_0%,rgba(99,102,241,0.25),transparent)]" />
+          <div className="relative p-8 sm:p-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-5">
+              <FiStar size={12} />
+              Featured Project
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+              {featuredProject.title}
+            </h3>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 max-w-3xl">
+              {featuredProject.description}
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {featuredProject.tags.map((tag) => <Tag key={tag} tag={tag} />)}
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-300 group-hover:text-white transition-colors">
+              Visit Live Site
+              <FiExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </motion.a>
+
+        {/* Project grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
@@ -95,14 +158,7 @@ export default function Projects() {
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-5">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className={`px-2.5 py-0.5 text-xs font-medium rounded-full ${tagColor[tag] || 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {project.tags.map((tag, i) => <Tag key={i} tag={tag} />)}
                 </div>
 
                 <a

@@ -14,7 +14,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
   const socials = [
     { icon: <FiGithub size={16} />, href: 'https://github.com/masindes', label: 'GitHub' },
-    { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/m-sylvester-9bb732251/', label: 'LinkedIn' },
+    { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/m-sylvester-6b2488403/', label: 'LinkedIn' },
     { icon: <FiMail size={16} />, href: 'mailto:watty.s@outlook.com', label: 'Email' },
   ];
 

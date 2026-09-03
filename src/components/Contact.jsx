@@ -24,7 +24,7 @@ const contactMethods = [
 
 const socialLinks = [
   { icon: <FaGithub size={18} />, href: "https://github.com/masindes", label: "GitHub" },
-  { icon: <FaLinkedin size={18} />, href: "https://www.linkedin.com/in/m-sylvester-9bb732251/", label: "LinkedIn" },
+  { icon: <FaLinkedin size={18} />, href: "https://www.linkedin.com/in/m-sylvester-6b2488403/", label: "LinkedIn" },
   { icon: <FaXTwitter size={18} />, href: "https://x.com/sylvesterwatty1", label: "X / Twitter" },
 ];
 

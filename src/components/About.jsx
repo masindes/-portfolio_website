@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiBook, FiUser } from 'react-icons/fi';
+import { FiBriefcase, FiBook, FiUser, FiAward } from 'react-icons/fi';
 
 const experiences = [
   {
@@ -25,6 +25,7 @@ const experiences = [
       "Directed the creative team; wrote scripts for TV & Radio campaigns.",
       "Handled all pre-press: Stripping, Imposition, and CTP production.",
     ],
+    clients: "Zain, Pacific Petroleum, Trinity Energy, Medi Blue Laboratories, Linku Pay, Raptor Security",
   },
   {
     role: "Creative Designer",
@@ -36,6 +37,7 @@ const experiences = [
       "Conceptualised and led brand campaigns; managed studio traffic and design team.",
       "Layout design for annual reports, calendars, and corporate collateral.",
     ],
+    clients: "Stanbic Bank, Business Daily, AquaFresh/GSK, Toyota Kenya, KICC, Liberty Insurance",
   },
   {
     role: "Graphic Designer",
@@ -47,10 +49,17 @@ const experiences = [
       "Lead designer on Sprite across East, Central & Southern Africa.",
       "One of the main designers on BAT pan-African campaigns.",
     ],
+    clients: "BAT, Sprite, Coca-Cola, Brand Kenya, Airtel, KTB",
   },
 ];
 
 const education = [
+  {
+    degree: "BSc. Computer Science",
+    institution: "Open University of Kenya (OUK)",
+    period: "Jan 2026 – Present",
+    detail: "In progress",
+  },
   {
     degree: "Software Engineering",
     institution: "Moringa School, Nairobi",
@@ -62,6 +71,25 @@ const education = [
     institution: "Academy of Graphic Technologies Ltd.",
     period: "Jan 2019 – Dec 2022",
     detail: "Art & Design — Graphic Design Option",
+  },
+  {
+    degree: "Certificate in Electronic Publishing",
+    institution: "Academy of Graphic Technologies Ltd.",
+    period: "Jan 2017 – Apr 2017",
+    detail: "Art & Design — Graphic Design Applications",
+  },
+];
+
+const awards = [
+  {
+    title: "Stanbic Bank Kenya",
+    period: "2015 & 2016",
+    detail: "Recognised for outstanding contribution to marketing & communications.",
+  },
+  {
+    title: "Polyplex Natal — Reflag Initiative",
+    period: "",
+    detail: "Recognised for key role played in the organisational initiative.",
   },
 ];
 
@@ -111,7 +139,10 @@ export default function About() {
                 A multidisciplinary creative and technology professional who bridges visual
                 storytelling, software engineering, and learning & development. Expert in
                 transforming complex ideas into compelling design and digital solutions across
-                print, web, and training environments.
+                print, web, and training environments — bringing a rare combination of creative
+                direction, full-stack engineering, and instructional design that delivers
+                outcomes which are visually powerful, technically sound, and strategically
+                aligned with organisational goals.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {["Creative Design", "Software Engineering", "L&D"].map((tag) => (
@@ -157,6 +188,42 @@ export default function About() {
                       {edu.institution}
                     </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">{edu.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Recognition card */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              className="p-6 rounded-2xl bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2.5 rounded-lg bg-amber-100 dark:bg-amber-900/30">
+                  <FiAward className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                </div>
+                <h3 className="font-semibold text-slate-900 dark:text-white">Recognition &amp; Awards</h3>
+              </div>
+              <div className="space-y-4">
+                {awards.map((award, i) => (
+                  <div
+                    key={i}
+                    className={i > 0 ? "pt-4 border-t border-slate-200 dark:border-gray-700" : ""}
+                  >
+                    <div className="flex justify-between items-start gap-2 mb-1">
+                      <h4 className="text-sm font-semibold text-slate-800 dark:text-white leading-snug">
+                        {award.title}
+                      </h4>
+                      {award.period && (
+                        <span className="text-[11px] text-slate-400 whitespace-nowrap shrink-0">
+                          {award.period}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{award.detail}</p>
                   </div>
                 ))}
               </div>
@@ -233,6 +300,11 @@ export default function About() {
                         </li>
                       ))}
                     </ul>
+                    {exp.clients && (
+                      <p className="mt-3 pt-3 border-t border-slate-200 dark:border-gray-700 text-[11px] text-slate-500 dark:text-slate-400">
+                        <span className="font-semibold text-slate-600 dark:text-slate-300">Key Clients:</span> {exp.clients}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               ))}

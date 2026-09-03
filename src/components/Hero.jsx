@@ -5,7 +5,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 export default function Hero() {
   const socials = [
     { icon: <FiGithub size={18} />, href: "https://github.com/masindes", label: "GitHub" },
-    { icon: <FiLinkedin size={18} />, href: "https://www.linkedin.com/in/m-sylvester-9bb732251/", label: "LinkedIn" },
+    { icon: <FiLinkedin size={18} />, href: "https://www.linkedin.com/in/m-sylvester-6b2488403/", label: "LinkedIn" },
     { icon: <FiMail size={18} />, href: "mailto:watty.s@outlook.com", label: "Email" },
   ];
 
